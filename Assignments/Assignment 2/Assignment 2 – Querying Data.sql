@@ -30,13 +30,8 @@ SELECT * FROM employees
 WHERE YEAR(hire_date)=2018 LIMIT 5 ;
 
 -- Calculate the sum of all salaries in the Finance department.
--- SELECT SUM(salary) AS Total_Salary FROM employees WHERE department_id=7;
--- SELECT SUM(salary) AS Total_Salary FROM employees WHERE department_id = (SELECT department_id FROM departments WHERE department_name = 'Finance');
-SELECT SUM(salary) AS Total_Salary 
-FROM employees 
-inner join departments on 
-employees.department_id=departments.department_id
-where departments.department_name = 'Finance';
+SELECT SUM(salary) AS Total_Salary FROM employees WHERE department_id = (SELECT department_id FROM departments WHERE department_name = 'Finance');
+
 
 -- Find the minimum age among all employees.
 SELECT MIN(age)AS Minimum_Age 
